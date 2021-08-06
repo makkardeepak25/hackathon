@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 
-const parentsSchema = new mongoose.Schema(
+const parentSchema = new mongoose.Schema(
   {
     student_name: {
       type: String,
@@ -19,12 +19,12 @@ const parentsSchema = new mongoose.Schema(
       type: String,
       required: true
     },
-    student_email: {
+    email: {
       type: String,
       required: true
     },
     parent_contact: {
-      type: String,
+      type: Number,
       required: true
     },
     parent_address: {
@@ -46,7 +46,7 @@ const parentsSchema = new mongoose.Schema(
   }
 );
 
-parentsSchema.pre("save", function(next) {
+parentSchema.pre("save", function(next) {
   if (!this.isModified("password")) return next();
   bcrypt.hash(this.password, 8, (err, hash) => {
     if (err) return next(err);
@@ -55,7 +55,7 @@ parentsSchema.pre("save", function(next) {
   });
 });
 
-parentsSchema.methods.checkPassword = function(password) {
+parentSchema.methods.checkPassword = function(password) {
   const userPassword = this.password;
   return new Promise((res, rej) => {
     bcrypt.compare(password, userPassword, (err, same) => {
@@ -65,6 +65,6 @@ parentsSchema.methods.checkPassword = function(password) {
   });
 };
 
-const Parents = mongoose.model("parents", parentsSchema);
+const Parent = mongoose.model("parent", parentSchema);
 
-module.exports = Parents;
+module.exports = Parent;

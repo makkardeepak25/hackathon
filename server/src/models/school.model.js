@@ -17,14 +17,16 @@ const schoolSchema = new mongoose.Schema(
     },
     password: {
       type: String,
-      required: true
+      required: true,
+      select: false
     },
-    school_email: {
+    email: {
       type: String,
-      required: true
+      required: true,
+      unique: true
     },
     school_contact: {
-      type: String,
+      type: Number,
       required: true
     },
     school_address: {
