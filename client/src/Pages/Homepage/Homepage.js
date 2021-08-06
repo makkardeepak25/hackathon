@@ -39,14 +39,14 @@ position: relative;
 
 `
 export const Parent= styled.div`
-width: 90%;
+width: 85%;
 height: 100%;
 margin: auto;
 background-color:black;
 color: white;
 opacity: 0.6;
 font-size:50px;
-padding:5px;
+padding:10px;
 &:hover{
     color: black;
     background-color:white;
@@ -62,7 +62,7 @@ background-color:black;
 color: white;
 opacity: 0.6;
 font-size:50px;
-padding:5px;
+padding:10px;
 
 &:hover{
     color: black;
