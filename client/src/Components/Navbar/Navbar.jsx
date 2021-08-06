@@ -1,5 +1,5 @@
 import React from 'react'
-import {Nav,Img,Click,Div,Div1,Img1,Butt,Input,Search,BackDiv,Parent,School,Par, Schoolimg} from "./Navbar.js"
+import {Nav,Img,Div,Div1,Img1,Butt,Input,Search} from "./Navbar.js"
 
 
 export  function Navbar() {
@@ -17,14 +17,7 @@ export  function Navbar() {
             <Div><a href="#">Find School</a></Div>
             <Div><a href="#">Parent's Counselling</a></Div>   
         </Nav>
-        <Click>Premium admission counseling services available,<strong> To know more Click here</strong></Click>
-        <BackDiv>
-        <Par>
-        <Parent><Schoolimg src="/parents.png"/><div>Login as a Parent</div></Parent>
-        <School><Schoolimg src="/school.jpg"/><div>Login as a School</div></School>
-        </Par>
-           
-        </BackDiv>
+        
         
         
 
