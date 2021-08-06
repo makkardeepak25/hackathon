@@ -3,11 +3,15 @@ const School = require('../models/school.model')
 const jwt = require("jsonwebtoken")
 require("dotenv").config()
 const { validationResult } = require("express-validator")
-
+const router=express.Router()
 
 const newToken = (school) => {
     return jwt.sign({id: school.id}, process.env.JWT_SECRETKEY)
 }
+router.get("/",async function (req, res){
+    const schools = await School.find({}).lean().exec()
+    return res.status(200).json({data:schools})
+})
 
 const register = async(req, res) => {
     const errors = validationResult(req);
@@ -49,6 +53,6 @@ const signin = async (req, res) => {
 
 module.exports = {
     schoolReg: register,
-    schoolSignin: signin
+    schoolSignin: signin,
+    schoolController:router
 }
-// module.exports = router;
