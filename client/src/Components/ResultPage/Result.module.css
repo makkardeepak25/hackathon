@@ -1,0 +1,93 @@
+.cardMain1{
+    width: 60%;
+    height: 30vh;
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    text-align: left;
+    border: 1px solid grey;
+    margin-top: 50px;
+}
+/* maindiv */
+.cardDivMain{
+    margin-top: 12vh;
+}
+/* ends here */
+
+.cardflex{
+    width: 30%;
+    height: 90%;
+    margin: auto;
+    margin-left: 5px;
+    
+}
+.cardImage{
+    width: 99%;
+    height: 99%;
+    margin: auto;
+    
+    
+}
+/* Details Div */
+.cardflex1{
+    width: 65%;
+    height: 90%;
+    margin: auto;
+    
+}
+.subDiv1{
+    width: 50%;
+    float: left;
+    margin-top: 0px;
+    padding-left: 20px;
+}
+.subName{
+    font-size: 25px;
+    margin-top: 0px;
+}
+.subName1{
+    font-size: 15px;
+    margin: 0px;
+}
+.subDiv2{
+    width: 50%;
+    float: right;
+    margin-top: 0px;
+    margin-right: -70px;
+}
+.cardButton{
+    width: 150px;
+    height: 4vh;
+    font-size: 18px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    background-color: rgb(17, 112, 30);
+    color: white;
+}
+.cardButton:hover{
+    background-color: rgb(6, 156, 26);
+}
+.card{
+    width: 30%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: auto;
+    margin-top: 50px;
+}
+.card > button{
+    width: 200px;
+    height: 6vh;
+    outline: none;
+    border: none;
+    background-color: rgb(86, 86, 247);
+    color: white;
+    font-size: 25px;
+}
+.card > p{
+    font-size: 32px;
+    font-weight: 700;
+    margin: 40px;
+    margin-top: 0px;
+}
