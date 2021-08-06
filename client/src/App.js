@@ -1,11 +1,10 @@
-import logo from './logo.svg';
 import './App.css';
-import FilterPage from './Pages/Filterpage/FilterPage';
+import Routes from './Routes/Routes';
 
 function App() {
   return (
     <div className="App">
-     <FilterPage/>
+     <Routes/>
     </div>
   );
 }
