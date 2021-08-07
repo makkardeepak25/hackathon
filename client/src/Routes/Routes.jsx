@@ -6,7 +6,9 @@ import Result from '../Components/ResultPage/Result'
 import SchoolDetails from '../Components/School_Details/SchoolDetails'
 import FilterPage from "../Pages/Filterpage/FilterPage"
 import { Navbar } from "./../Components/Navbar/Navbar.jsx";
-import {Homepage} from "./../Pages/Homepage/Homepage.jsx"
+import { Homepage } from "./../Pages/Homepage/Homepage.jsx";
+import {ParentLogin} from "./../Pages/LoginPages/ParentLogin"
+import {SchoolLogin} from "./../Pages/LoginPages/SchoolLogin"
 
 function Routes() {
     return (
@@ -27,6 +29,12 @@ function Routes() {
                 </Route>
                 <Route path="/register-parent">
                     <ParentsRegForm/>
+                </Route>
+                <Route path="/login-parent">
+                    <ParentLogin/>
+                </Route>
+                <Route path="/login-school">
+                    <SchoolLogin/>
                 </Route>
             </Switch>
             

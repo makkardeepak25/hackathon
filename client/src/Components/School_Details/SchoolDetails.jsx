@@ -11,7 +11,7 @@ function SchoolDetails() {
     const [Loading, setLoading]=useState(false)
 
     const getData=()=>{
-        axios.get(`https://deesmockserver.herokuapp.com/posts/${id}`)
+        axios.get(`https://localhost:8000/schools/${id}`)
         .then((res)=>{
             setData(res.data)
             setLoading(true)

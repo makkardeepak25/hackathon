@@ -3,7 +3,7 @@ import Styles from "./Result.module.css"
 import { useHistory } from "react-router-dom";
 
 function Card({item}) {
-    const {id,school_name,email,annual_fee,address,city,school_images}=item
+    const {_id,school_name,email,annual_fee,address,city,school_images}=item
     let history = useHistory()
     const handlePush=(id)=>{
       history.push(`/details/${id}`)  
@@ -23,7 +23,7 @@ function Card({item}) {
                     </div> 
                     <div className={Styles.subDiv2}>
                          <h3>Fees: {annual_fee} Lakh/Year</h3>
-                        <button className={Styles.cardButton} onClick={()=> handlePush(id)}>More Details</button>
+                        <button className={Styles.cardButton} onClick={()=> handlePush(_id)}>More Details</button>
                     </div>
                 </div>
             </div>
