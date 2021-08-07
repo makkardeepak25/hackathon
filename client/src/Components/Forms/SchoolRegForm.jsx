@@ -272,7 +272,6 @@ function SchoolRegForm() {
               variant="outlined"
               type="file"
             />
-            {/* <button onClick={>Add</button> */}
             <br />
             <br />
 
