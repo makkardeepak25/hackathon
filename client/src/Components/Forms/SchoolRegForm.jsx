@@ -57,8 +57,10 @@ const initState = {
 };
 function SchoolRegForm() {
   const classes = useStyles();
+  const [imageUrl, setImageUrl]=useState("")
   // const [board, setBoard] = React.useState('');
   const [open, setOpen] = React.useState(false);
+  const imageRef = React.useRef();
 
   const [schoolregForm, setSchoolRegForm] = useState(initState);
   const {
@@ -85,6 +87,32 @@ function SchoolRegForm() {
     setOpen(false);
   };
 
+   const ShowUrlImage= async()=>{
+     console.log(imageRef.current.files[0])
+    await axios({
+      method: "post",
+      url: "https://api.imgur.com/3/image",
+      headers: {
+        Authorization: `Client-ID ff80a62bfa31507`,
+      },
+      data:imageRef.current.files[0] 
+    })
+      .then((res) => {
+          console.log(res.data.data.link)
+        setImageUrl(res.data.data.link)
+        alert('Save Your Changes')
+        // console.log(res.data.data.link)
+    })
+      .catch((err) =>{
+          
+           alert("You are Redirecting to http://127.0.0.2:3000/")
+          //  window.open('http://127.0.0.2:3000/user/setting')
+         
+        });
+  };
+
+  
+
   const handleOpen = () => {
     setOpen(true);
   };
@@ -100,7 +128,7 @@ function SchoolRegForm() {
       city,
       teacher_student_ratio: Number(teacher_student_ratio),
       board,
-      school_images,
+      school_images:imageUrl,
       phone_number: Number(phone_number)
     };
     console.log(payload);
@@ -116,7 +144,7 @@ function SchoolRegForm() {
   return (
     <div className={classes.root}>
       <h2>School Registration Form</h2>
-      <form noValidate autoComplete="off">
+      <div noValidate autoComplete="off">
         <div style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)" }}>
           <div>
             <TextField
@@ -235,15 +263,16 @@ function SchoolRegForm() {
             />
             <br />
             <br />
-            <TextField
+            <input
               margin="dense"
               name="school_images"
-              value={school_images}
-              onChange={handleChange}
+              onChange={ShowUrlImage}
               // label="school_image"
+              ref={imageRef}
               variant="outlined"
               type="file"
             />
+            {/* <button onClick={>Add</button> */}
             <br />
             <br />
 
@@ -274,7 +303,7 @@ function SchoolRegForm() {
         <Button onClick={handleSubmit} variant="contained" className={classes.root2} color="primary">
           S U B M I T
         </Button>
-      </form>
+      </div>
     </div>
   );
 }
