@@ -45,7 +45,11 @@ const schoolSchema = new mongoose.Schema(
       type: String,
       required: true
     },
-    school_images: { type: Array, default: [] }
+    school_images: { type: Array, default: [] },
+    reviewId: [{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "review"
+    }]
   },
   {
     timestamps: true,

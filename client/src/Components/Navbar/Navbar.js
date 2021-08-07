@@ -22,7 +22,7 @@ height:70px;
 padding: 5px;
  `
 export const Div= styled.div`
-margin-top:25px;
+margin-top:29px;
 
 
 `

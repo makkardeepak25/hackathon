@@ -39,13 +39,14 @@ position: relative;
 
 `
 export const Parent= styled.div`
-width: 70%;
+width: 85%;
 height: 100%;
 margin: auto;
 background-color:black;
 color: white;
 opacity: 0.6;
 font-size:50px;
+padding:10px;
 &:hover{
     color: black;
     background-color:white;
@@ -54,13 +55,14 @@ font-size:50px;
 `
 
 export const School= styled.div`
-width: 70%;
+width: 90%;
 height: 100%;
 margin: auto;
 background-color:black;
 color: white;
 opacity: 0.6;
 font-size:50px;
+padding:10px;
 
 &:hover{
     color: black;
