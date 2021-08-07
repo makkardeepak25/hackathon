@@ -1,38 +1,10 @@
-import React, {useEffect } from 'react'
-import { useHistory } from "react-router-dom";
+import React from 'react'
 import Styles from "./Filter.module.css"
 
-const payload={
-  city:"",
-  standard:"",
-  board:""  
-};
 
-function InputSearch() {
 
-    const [searchData,setSearchData]=React.useState(payload);
+function InputSearch({searchData,handleSearchData,handleSubmit }) {
     const { city,standard, board}=searchData;
-
-    let parm = new URLSearchParams();
-    let history = useHistory();
-
-    const handleSubmit = () => {
-        history.push("/result?" + parm.toString());
-      };
-
-    useEffect(() => {
-        for (let key in searchData) {
-        if (searchData[key]) {
-            parm.set(key, searchData[key]);
-        }
-        }
-    }, [searchData, parm]);
-
-    const handleSearchData = (e) => {
-        const { value, name } = e.target;
-        setSearchData({ ...searchData, [name]: value });
-      };
-      console.log(searchData)
     return (
         <div className={Styles.mainInput}> 
             <div className={Styles.inputDiv1}>
