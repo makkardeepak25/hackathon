@@ -240,8 +240,9 @@ function SchoolRegForm() {
               name="school_images"
               value={school_images}
               onChange={handleChange}
-              label="school_image"
+              // label="school_image"
               variant="outlined"
+              type="file"
             />
             <br />
             <br />
