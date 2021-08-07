@@ -35,58 +35,41 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 export function Options({ children }) {
-  const { myState, callAccept, callEnd, name, setName, leaveCall, callUser } = React.useContext(SocketContext);
-  const [idCall, setIdCall] = React.useState("");
-  console.log(idCall);
-  const classes = useStyles();
-  return (
-    <Container className={classes.container}>
-      <Paper elevation={12} className={classes.paper}>
-        <form className={classes.root} noValidate autoComplete="off">
-          <Grid container className={classes.gridContainer}>
-            <Grid className={classes.padding} item xs={12} md={6}>
-              <Typography gutterBottom variant="h6">
-                Account Info
-              </Typography>
-              <TextField label="Name" value={name} onChange={e => setName(e.target.value)} />
-              <CopyToClipboard text={myState} className={classes.margin}>
-                <Button variant="contained" color="primary" fullWidth startIcon={<Assignment fontSize="large" />}>
-                  Copy Id
-                </Button>
-              </CopyToClipboard>
+    const { me, callAccepted, name, setName, callEnded, leaveCall, callUser } = React.useContext(SocketContext);
+    const [idToCall, setIdToCall] = React.useState('');
+    const classes = useStyles();
+  
+    return (
+      <Container className={classes.container}>
+        <Paper elevation={10} className={classes.paper}>
+          <form className={classes.root} noValidate autoComplete="off">
+            <Grid container className={classes.gridContainer}>
+              <Grid item xs={12} md={6} className={classes.padding}>
+                <Typography gutterBottom variant="h6">Account Info</Typography>
+                <TextField label="Name" value={name} onChange={(e) => setName(e.target.value)} fullWidth />
+                <CopyToClipboard text={me} className={classes.margin}>
+                  <Button variant="contained" color="primary" fullWidth startIcon={<Assignment fontSize="large" />}>
+                    Copy Your ID
+                  </Button>
+                </CopyToClipboard>
+              </Grid>
+              <Grid item xs={12} md={6} className={classes.padding}>
+                <Typography gutterBottom variant="h6">Make a call</Typography>
+                <TextField label="ID to call" value={idToCall} onChange={(e) => setIdToCall(e.target.value)} fullWidth />
+                {callAccepted && !callEnded ? (
+                  <Button variant="contained" color="secondary" startIcon={<PhoneDisabled fontSize="large" />} fullWidth onClick={leaveCall} className={classes.margin}>
+                    Hang Up
+                  </Button>
+                ) : (
+                  <Button variant="contained" color="primary" startIcon={<Phone fontSize="large" />} fullWidth onClick={() => callUser(idToCall)} className={classes.margin}>
+                    Call
+                  </Button>
+                )}
+              </Grid>
             </Grid>
-            <Grid className={classes.padding} item xs={12} md={6}>
-              <Typography gutterBottom variant="h6">
-                Make Call
-              </Typography>
-              <TextField label="Id we need to Call" value={idCall} onChange={e => setIdCall(e.target.value)} />
-              {callAccept && !callEnd ? (
-                <Button
-                  variant="contained"
-                  color="secondary"
-                  startIcon={<PhoneDisabled fontSize="large" />}
-                  onClick={leaveCall}
-                  className={classes.margin}
-                >
-                  Hang Up
-                </Button>
-              ) : (
-                <Button
-                  variant="contained"
-                  color="primary"
-                  startIcon={<Phone fontSize="large" />}
-                  onClick={() => callUser(idCall)}
-                  className={classes.margin}
-                  fullWidth
-                >
-                  Call Person
-                </Button>
-              )}
-            </Grid>
-          </Grid>
-        </form>
-        {children}
-      </Paper>
-    </Container>
-  );
+          </form>
+          {children}
+        </Paper>
+      </Container>
+    );
 }
