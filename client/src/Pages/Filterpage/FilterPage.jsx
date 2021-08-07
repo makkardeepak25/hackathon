@@ -4,7 +4,7 @@ import { useState } from 'react';
 import InputSearch from '../../Components/Filterpage/InputSearch'
 import SearchImage from '../../Components/Filterpage/SearchImage';
 import Result from "../../Components/ResultPage/Result"
-
+import Styles from "../../Components/ResultPage/Result.module.css"
 
 const payload={
     city:"",
@@ -15,7 +15,18 @@ function FilterPage() {
     const [searchData,setSearchData]=React.useState(payload);
     const [loading, setLoading]=useState(true)
     const [page,setPage]=React.useState(1)
-    const [schoolData,setSchoolData]=React.useState([])
+    const [schoolData,setSchoolData]=React.useState([{
+        id: 1,
+        school_name: "Andy",
+        gst_number: "5602216203954139",
+        email: "alupton0@irs.gov",
+        annual_fee: 7,
+        address: "6 Village Green Trail",
+        city: "Mislak",
+        teacher_to_student_ratio: 12,
+        school_image: "http://dummyimage.com/196x100.png/ff4444/ffffff",
+        phone_number: 8499419750
+      }])
     let parm = new URLSearchParams();
 
     // Search button Click function start
@@ -23,7 +34,7 @@ function FilterPage() {
         getSchoolData()
       };
 
-      const getSchoolData=(limit=5)=>{
+      const getSchoolData=(limit=10)=>{
         axios.get(`https://deesmockserver.herokuapp.com/posts?${parm.toString()}`,{
             params :{
                 _page :page,
@@ -60,6 +71,11 @@ function FilterPage() {
         const { value, name } = e.target;
         setSearchData({ ...searchData, [name]: value });
       };
+
+      const handleFilter=(e)=>{
+          const updatedList= schoolData.filter((el)=>el.annual_fee<=e.target.value)
+          setSchoolData(updatedList)
+      }
     return (
         <div>
             <div>
@@ -68,8 +84,9 @@ function FilterPage() {
             handleSubmit ={handleSubmit}/>
             </div>
             <div>
-               {loading ? <Result schoolData={schoolData} page={page} setPage={setPage}/> : <SearchImage/>}
+               {loading ? <Result schoolData={schoolData} page={page} setPage={setPage} handleFilter={handleFilter}/> : <SearchImage/>}
             </div>
+           
             
         </div>
     )
