@@ -12,7 +12,7 @@ const parentSchema = new mongoose.Schema(
       required: true
     },
     applying_standard: {
-      type: String,
+      type: Number,
       required: true
     },
     password: {
@@ -27,15 +27,19 @@ const parentSchema = new mongoose.Schema(
       type: Number,
       required: true
     },
-    parent_address: {
+    address: {
       type: String,
       required: true
     },
-    parent_city: {
+    parents_income: {
+      type: Number,
+      required: true
+    },
+    city: {
       type: String,
       required: true
     },
-    parent_profession: {
+    parents_profession: {
       type: String,
       required: true
     }

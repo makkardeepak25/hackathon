@@ -16,8 +16,10 @@ const register = async(req, res) => {
     try {
         const parent = await Parent.create(req.body)
         const token = newToken(parent)
+        console.log(parent)
         return res.status(201).json({token: token})
-    }catch(e){
+    } catch (e) {
+        console.error(e)
         return res.status(500).json({status: "failed", message: "Something went wrong"})
     }
 }
