@@ -27,6 +27,7 @@ function Result({schoolData,page,setPage,handleFilter}) {
                         </select>
                         </label>
                     </div>
+                    <h3>Change Pages below</h3>
                     <div className={Styles.card}>
                         <button disabled={page===1} onClick={()=>setPage(page-1)}>Prev</button>
                         <p>{page}</p>
