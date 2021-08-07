@@ -65,7 +65,8 @@ function FilterPage() {
       const handleFilter=(e)=>{
           const updatedList= schoolData.filter((el)=>el.annual_fee<=e.target.value)
           setSchoolData(updatedList)
-      }
+    }
+    console.log(schoolData)
     return (
         <div>
             <div>

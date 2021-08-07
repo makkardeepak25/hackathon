@@ -11,6 +11,7 @@ function SchoolDetails() {
     const [Loading, setLoading]=useState(false)
 
     const getData=()=>{
+
         axios.get(`http://localhost:8000/schools/${id}`)
         .then((res)=>{
             console.log(res.data.data)
