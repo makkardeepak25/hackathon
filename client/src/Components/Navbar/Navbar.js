@@ -7,6 +7,7 @@ position:fixed;
 background-color:#9A1750;
 width:100%; 
 top:0;
+z-index:100000;
 display:flex;
 justify-content:space-around;
 padding:0px;
@@ -20,6 +21,7 @@ export const Img= styled.img`
 width:13%;
 height:70px;
 padding: 5px;
+cursor: pointer;
  `
 export const Div= styled.div`
 margin-top:29px;

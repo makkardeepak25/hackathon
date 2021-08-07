@@ -8,7 +8,7 @@ const schoolSchema = new mongoose.Schema(
       required: true
     },
     gst_number: {
-      type: Number,
+      type: String,
       required: true
     },
     max_standard: {
@@ -25,11 +25,15 @@ const schoolSchema = new mongoose.Schema(
       required: true,
       unique: true
     },
-    school_contact: {
+    annual_fee: {
       type: Number,
       required: true
     },
-    school_address: {
+    phone_number: {
+      type: Number,
+      required: true
+    },
+    address: {
       type: String,
       required: true
     },
@@ -45,7 +49,7 @@ const schoolSchema = new mongoose.Schema(
       type: String,
       required: true
     },
-    school_images: { type: Array, default: [] },
+    school_images: { type: String },
     reviewId: [{
       type: mongoose.Schema.Types.ObjectId,
       ref: "review"
