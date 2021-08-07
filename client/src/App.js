@@ -1,14 +1,14 @@
 import './App.css';
-import Routes from "./Routes/Routes";
-import {VideoChat} from "./Components/VideoChat/VideoChat"
-
+import { ParentsRegForm } from './Components/Forms/ParentsRegForm';
+import { SchoolRegForm } from './Components/Forms/SchoolRegForm';
+import Routes from './Routes/Routes';
 
 function App() {
   return (
     <div className="App">
-      <Routes />
-      <VideoChat/>
-
+     <Routes/>
+     <ParentsRegForm />
+     <SchoolRegForm/>
     </div>
   );
 }
