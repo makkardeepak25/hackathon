@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "nodemon src"
+    "server": "nodemon src",
+    "video":"nodemon src/appSocket"
+
   },
   "keywords": [],
   "author": "",
@@ -18,10 +20,12 @@
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "express-validator": "^6.12.1",
+    "http": "0.0.1-security",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.13.5",
     "multer": "^1.4.2",
     "passport": "^0.4.1",
+    "socket.io": "^4.1.3",
     "uuid": "^8.3.2"
   }
 }

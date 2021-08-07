@@ -35,7 +35,7 @@ const parentSchema = new mongoose.Schema(
       type: String,
       required: true
     },
-    parent_qualification: {
+    parent_profession: {
       type: String,
       required: true
     }
