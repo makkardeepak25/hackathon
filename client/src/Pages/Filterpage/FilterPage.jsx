@@ -15,18 +15,7 @@ function FilterPage() {
     const [searchData,setSearchData]=React.useState(payload);
     const [loading, setLoading]=useState(true)
     const [page,setPage]=React.useState(1)
-    const [schoolData,setSchoolData]=React.useState([{
-        id: 1,
-        school_name: "Andy",
-        gst_number: "5602216203954139",
-        email: "alupton0@irs.gov",
-        annual_fee: 7,
-        address: "6 Village Green Trail",
-        city: "Mislak",
-        teacher_to_student_ratio: 12,
-        school_image: "http://dummyimage.com/196x100.png/ff4444/ffffff",
-        phone_number: 8499419750
-      }])
+    const [schoolData,setSchoolData]=React.useState([])
     let parm = new URLSearchParams();
 
     // Search button Click function start
@@ -35,14 +24,15 @@ function FilterPage() {
       };
 
       const getSchoolData=(limit=10)=>{
-        axios.get(`https://deesmockserver.herokuapp.com/posts?${parm.toString()}`,{
+        axios.get(`http://localhost:8000/schools?${parm.toString()}`,{
             params :{
                 _page :page,
                 _limit : limit
             }
         })
             .then((res)=>{
-                setSchoolData(res.data);
+                console.log(res)
+                setSchoolData(res.data.data);
                 if(schoolData.length>=1){
                     setLoading(true)
                 }
@@ -56,7 +46,7 @@ function FilterPage() {
         getSchoolData()
       },[page])
     //   end here
-
+    console.log(schoolData)
     // Set Param function starts
     useEffect(() => {
         for (let key in searchData) {
