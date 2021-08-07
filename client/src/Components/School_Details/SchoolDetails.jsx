@@ -11,9 +11,10 @@ function SchoolDetails() {
     const [Loading, setLoading]=useState(false)
 
     const getData=()=>{
-        axios.get(`https://deesmockserver.herokuapp.com/posts/${id}`)
+        axios.get(`http://localhost:8000/schools/${id}`)
         .then((res)=>{
-            setData(res.data)
+            console.log(res.data.data)
+            setData(res.data.data)
             setLoading(true)
         })
     }
@@ -26,13 +27,8 @@ function SchoolDetails() {
         <div className={styles.Pmaindiv}>
             <div className={styles.Psubdiv} >
                 <div className={styles.Pimagesubdiv} >
-                   <img className={styles.Pimg1} src={data.school_image} alt="" />
-                   <img className={styles.Pimg1} src={data.school_image} alt="" />
+                   <img className={styles.Pimg1} src={data.school_images} alt="" />
                </div>
-               <div className={styles.Pimagesubdiv}>
-                   <img className={styles.Pimg1} src={data.school_image} alt="" />
-                   <img className={styles.Pimg1} src={data.school_image} alt="" />
-                </div> 
            </div>
             <div className={styles.psubdiv2}>
                 <h2>School Name: {data.school_name}</h2>
