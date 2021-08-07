@@ -6,6 +6,7 @@ function Card({item}) {
     const {_id,school_name,email,annual_fee,address,city,school_images}=item
     let history = useHistory()
     const handlePush=(id)=>{
+        console.log(id)
       history.push(`/details/${id}`)  
     }
     return (

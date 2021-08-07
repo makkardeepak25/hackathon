@@ -46,7 +46,7 @@ function FilterPage() {
         getSchoolData()
       },[page])
     //   end here
-    console.log(schoolData)
+    
     // Set Param function starts
     useEffect(() => {
         for (let key in searchData) {
