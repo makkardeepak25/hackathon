@@ -40,7 +40,7 @@ const useStyles = makeStyles({
 function ParentsRegForm(){
     const classes = useStyles();
     const [parentsForm,setParentsForm] = useState(initState)
-    const {studentname, gaurdianname, applyingstandard,parentsincome,parentsemail,parentscontactnum,addressline1,addressline2,parentsqualification,password } =  parentsForm
+    const {studentname, gaurdianname, applyingstandard,parentsincome,parentsemail,parentscontactnum,address,parentsqualification,password } =  parentsForm
     const handleChange = (e) => {
         const {name,value} = e.target
         setParentsForm({...parentsForm,[name]:value})

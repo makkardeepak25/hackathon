@@ -1,7 +1,10 @@
 import React,{useState} from 'react'
 import { TextField,Button} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import {  login } from './Redux/actions';
+import { store } from './Redux/actions';
 const useStyles = makeStyles((theme) =>({
     root: {
       background: 'linear-gradient(45deg,#60bf9c  30%,#c2e66a 90%)',
@@ -33,28 +36,31 @@ const useStyles = makeStyles((theme) =>({
         minWidth: 120,
       },
   }));
-const initState = {
-    email:"",
-    password:"",
-}
+
 function ParentsLoginForm(){
-    const [login,setLogin] = useState(initState)
     const classes = useStyles();
+    const [login, setLogin] = useState([])
     const handleChange = (e) => {
         const {name, value} = e.target
-        setLogin({...login,[name]:value})
+        // setLogin({...login,[name]:value})
+    }
+    const initState = useSelector((state) => state)
+    console.log(initState);
+    const dispatch = useDispatch();
+    const handleSubmit = () =>{
+        const login = login()
     }
     return(
         <div>
             Parents Login
-            <TextField margin="dense" type = "email" name="email" value = {email} onChange = {handleChange} label="email" variant="outlined" />
+            <TextField margin="dense" type = "email" name="email" value = {initState.email} onChange = {handleChange} label="email" variant="outlined" />
                     <br />
                     <br />
-                    <TextField margin="dense" type = "password" name="password" value = {password} onChange = {handleChange} label="password" variant="outlined" />
+                    <TextField margin="dense" type = "password" name="password" value = {initState.password} onChange = {handleChange} label="password" variant="outlined" />
                     <br />
                     <br />
                  
-                <Button variant="contained" className={classes.root2} color="primary">
+                <Button onClick = {handleSubmit} variant="contained" className={classes.root2} color="primary">
                     S U B M I T
                 </Button>
 

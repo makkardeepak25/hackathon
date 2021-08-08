@@ -39,6 +39,8 @@ const initState = {
 }
 function SchoolLoginForm(){
     const [login,setLogin] = useState(initState)
+    const {email,password} = login
+
     const classes = useStyles();
     const handleChange = (e) => {
         const {name, value} = e.target
