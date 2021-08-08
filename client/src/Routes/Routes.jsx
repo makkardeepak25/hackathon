@@ -2,7 +2,7 @@ import React from 'react'
 import{Switch,Route} from "react-router"
 import { ParentsRegForm } from '../Components/Forms/ParentsRegForm'
 import { SchoolRegForm } from '../Components/Forms/SchoolRegForm'
-import Result from '../Components/ResultPage/Result'
+import AllReview from '../Components/ReviewPage/AllReview'
 import ReviewPage from '../Components/ReviewPage/ReviewPage'
 import SchoolDetails from '../Components/School_Details/SchoolDetails'
 import FilterPage from "../Pages/Filterpage/FilterPage"
@@ -33,12 +33,15 @@ function Routes() {
                 </Route>
                 <Route path="/reviewpage/:id" exact>
                     <ReviewPage/>
+                </Route>
+                <Route path="/seepreview/:id"exact>
+                    <AllReview/>
+                </Route>
                 <Route path="/login-parent">
                     <ParentLogin/>
                 </Route>
                 <Route path="/login-school">
                     <SchoolLogin/>
-
                 </Route>
             </Switch>
             

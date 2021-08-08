@@ -36,7 +36,11 @@ function ReviewPage() {
     const postReview=()=>{
         (data.reviewId).push(input)
         axios.patch(`http://localhost:8000/schools/${id}`,data)
-        .then(res=>alert(res))
+        .then((res)=>{
+            console.log(res)
+            alert("review added")
+        }
+        )
 
     }
     console.log(data)
