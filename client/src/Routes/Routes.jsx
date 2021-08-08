@@ -3,13 +3,16 @@ import { Switch, Route } from "react-router";
 import { ParentsRegForm } from "../Components/Forms/ParentsRegForm";
 import { SchoolRegForm } from "../Components/Forms/SchoolRegForm";
 import Result from "../Components/ResultPage/Result";
+import FilterPage from "../Pages/Filterpage/FilterPage";
+import AllReview from "../Components/ReviewPage/AllReview";
 import ReviewPage from "../Components/ReviewPage/ReviewPage";
 import SchoolDetails from "../Components/School_Details/SchoolDetails";
-import FilterPage from "../Pages/Filterpage/FilterPage";
 import { Navbar } from "./../Components/Navbar/Navbar.jsx";
 import { Homepage } from "./../Pages/Homepage/Homepage.jsx";
 import { ParentLogin } from "./../Pages/LoginPages/ParentLogin";
 import { SchoolLogin } from "./../Pages/LoginPages/SchoolLogin";
+import { Counselling } from "../Pages/Counselling/Counselling";
+import { SocketContectProvider } from "../Context/SocketContectProvider";
 
 function Routes() {
   return (
@@ -34,11 +37,19 @@ function Routes() {
         <Route path="/reviewpage/:id" exact>
           <ReviewPage />
         </Route>
+        <Route path="/seepreview/:id" exact>
+          <AllReview />
+        </Route>
         <Route path="/login-parent">
           <ParentLogin />
         </Route>
         <Route path="/login-school">
           <SchoolLogin />
+        </Route>
+        <Route path="/counselling">
+          <SocketContectProvider>
+            <Counselling />
+          </SocketContectProvider>
         </Route>
       </Switch>
     </div>
