@@ -3,14 +3,14 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
-import { SocketContectProvider } from "./Context/SocketContectProvider";
+// import { SocketContectProvider } from "./Context/SocketContectProvider";
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <SocketContectProvider>
+      {/* <SocketContectProvider> */}
         <App />
-      </SocketContectProvider>
+      {/* </SocketContectProvider> */}
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import { saveData } from "./../../Utils/localStorage";
-import { Redirect,useHistory } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 const Container = styled.div`
   height: 100vh;
   background-image: url("https://wallpaperaccess.com/full/1850860.jpg");
@@ -60,25 +60,24 @@ const Logo = styled.img`
   margin: auto;
 `;
 const Head3 = styled.h3`
-color: #bcf7bc;
-font-size:28px;
-`
+  color: #bcf7bc;
+  font-size: 28px;
+`;
 
 export const ParentLogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [err, setErr] = useState(false);
   const [token, setToken] = useState("");
-    const [isAuth, setIsAuth] = useState(false);
-    const history = useHistory();
+  const [isAuth, setIsAuth] = useState(false);
+  const history = useHistory();
 
   const saveUserInfo = response => {
-    saveData("user", response.data);
+    saveData("parent", response.data);
     setToken(response.token);
-    console.log("successfull");
   };
-  if (token && isAuth) {
-    return <Redirect push to="/" />;
+  if (token) {
+    history.go(-1);
   }
 
   const LoginToAccount = () => {
@@ -89,8 +88,8 @@ export const ParentLogin = () => {
     console.log(payload);
     axios
       .post("http://localhost:8000/parent/signin", payload)
-        .then(res => {
-          setIsAuth(true)
+      .then(res => {
+        // setIsAuth(true)
         saveUserInfo(res.data);
       })
       .catch(err => setErr(true));
@@ -126,7 +125,12 @@ export const ParentLogin = () => {
                 gap: "10px"
               }}
             />
-            <p onClick={()=>history.push("/register-parent")} style={{ color: "#2c632c", fontSize: "30px",cursor: "pointer"}}>Need an account ? Sign up</p>
+            <p
+              onClick={() => history.push("/register-parent")}
+              style={{ color: "#2c632c", fontSize: "30px", cursor: "pointer" }}
+            >
+              Need an account ? Sign up
+            </p>
           </div>
         </RightCol>
       </Container>

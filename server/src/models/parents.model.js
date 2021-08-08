@@ -42,7 +42,11 @@ const parentSchema = new mongoose.Schema(
     parents_profession: {
       type: String,
       required: true
-    }
+    },
+    role: {
+      type: String,
+      default:"parent"
+    },
   },
   {
     timestamps: true,
