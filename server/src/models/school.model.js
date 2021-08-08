@@ -49,6 +49,10 @@ const schoolSchema = new mongoose.Schema(
       type: String,
       required: true
     },
+    role: {
+      type: String,
+      default:"school"
+    },
     school_images: { type: String },
     reviewId: [{
       type: mongoose.Schema.Types.ObjectId,

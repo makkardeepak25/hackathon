@@ -109,8 +109,8 @@ export const SchoolLogin = () => {
             <LoginInput onChange={e => setEmail(e.target.value)} placeholder="Username" />
             <br />
             <LoginInput onChange={e => setPassword(e.target.value)} placeholder="Password" />
-            {err && <p style={{ color: "pink" }}>Either email or password isincorrect.</p>}
-            <ForgetPassword style={{ color: "pink" }}>Forget Password?</ForgetPassword>
+            {err && <p style={{ color: "#2c632c" }}>Either email or password isincorrect.</p>}
+            <ForgetPassword style={{ color: "#2c632c" }}>Forget Password?</ForgetPassword>
             <LoginButton onClick={LoginToAccount}>School Login</LoginButton>
           </LoginDetails>
           <div

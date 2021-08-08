@@ -16,14 +16,18 @@ function ReviewPage() {
     const [data,setData]=useState({})
     const {id}=useParams()
     const [loading, setLoading]=useState(false)
-
+    let parentData = localStorage.getItem("parent")
+    let patData = JSON.parse(parentData)
+    let parentId = patData._id;
+    let schoolId=data&&data._id
+    
     useEffect(()=>{
         getData()
     },[])
 
     const getData=()=>{
         axios.get(`http://localhost:8000/schools/${id}`)
-        .then((res)=>{
+            .then((res) => {
             setData(res.data.data)
             setLoading(true)
         })
@@ -33,20 +37,24 @@ function ReviewPage() {
             setInput({...input,[name]:value})
     }
 
-    const postReview=()=>{
-        (data.reviewId).push(input)
-        axios.patch(`http://localhost:8000/schools/${id}`,data)
+    const postReview = () => {
+        var payload = {
+            title, body, rating,
+            parentId, schoolId
+        }
+        axios.post(`http://localhost:8000/review`,payload)
         .then(res=>alert(res))
 
     }
     console.log(data)
+
  
     return loading ? (
         <div style={{marginTop:"15vh"}}>
             <input type="text" name="title" value={title} placeholder="add Review Title here" onChange={handleChange} />
             <input type="text" name="body" value={body} placeholder="add Comments here" onChange={handleChange} />
             <input type="text" name="rating" value={rating} placeholder="add ratings here" onChange={handleChange} />
-            <button onClick={()=>postReview()}>Post Review</button>
+            <button onClick={()=>postReview()}>Add Review</button>
         </div>
     ):(<div style={{marginTop:"15vh"}}>...Loading,Please Wait</div>)
 }
