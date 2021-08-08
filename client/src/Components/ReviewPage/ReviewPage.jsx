@@ -3,6 +3,7 @@ import React from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
 import { useParams } from 'react-router-dom'
+import {Main,Input, Button} from './Review.js'
 
 const payload={
     title:"",
@@ -16,7 +17,7 @@ function ReviewPage() {
     const [data,setData]=useState({})
     const {id}=useParams()
     const [loading, setLoading]=useState(false)
-    let parentData = localStorage.getItem("parent")
+    let parentData = sessionStorage.getItem("parent")
     let patData = JSON.parse(parentData)
     let parentId = patData._id;
     let schoolId=data&&data._id
@@ -51,12 +52,14 @@ function ReviewPage() {
 
  
     return loading ? (
-        <div style={{marginTop:"15vh"}}>
-            <input type="text" name="title" value={title} placeholder="add Review Title here" onChange={handleChange} />
-            <input type="text" name="body" value={body} placeholder="add Comments here" onChange={handleChange} />
-            <input type="text" name="rating" value={rating} placeholder="add ratings here" onChange={handleChange} />
-            <button onClick={()=>postReview()}>Add Review</button>
-        </div>
+        <Main style={{marginTop:"15vh"}}>
+            
+            <h2>Add Your Reviews Here ! </h2>
+            <Input type="text" name="title" value={title} placeholder="add Review Title here" onChange={handleChange} /><br/>
+            <Input type="text" name="body" value={body} placeholder="add Comments here" onChange={handleChange} /><br/>
+            <Input type="text" name="rating" value={rating} placeholder="add ratings here" onChange={handleChange} /><br/>
+            <Button onClick={()=>postReview()}>Add Review</Button>
+        </Main>
     ):(<div style={{marginTop:"15vh"}}>...Loading,Please Wait</div>)
 }
 

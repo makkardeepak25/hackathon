@@ -3,8 +3,6 @@ import { Switch, Route } from "react-router";
 import { ParentsRegForm } from "../Components/Forms/ParentsRegForm";
 import { SchoolRegForm } from "../Components/Forms/SchoolRegForm";
 import Result from "../Components/ResultPage/Result";
-import ReviewPage from "../Components/ReviewPage/ReviewPage";
-import SchoolDetails from "../Components/School_Details/SchoolDetails";
 import FilterPage from "../Pages/Filterpage/FilterPage";
 import AllReview from '../Components/ReviewPage/AllReview'
 import ReviewPage from '../Components/ReviewPage/ReviewPage'

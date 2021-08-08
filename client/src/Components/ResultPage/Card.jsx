@@ -16,7 +16,7 @@ function Card({item}) {
             </div>
             <div className={Styles.cardflex1}>
                 <h2 className={Styles.subName}>{school_name}</h2>
-                <p className={Styles.subName1}>Adress: {address}</p>
+                <p className={Styles.subName1}>Address: {address}</p>
                     <div className={Styles.subDiv1}>
                             <h3>City: {city}</h3>
                             <h3>{email}</h3>

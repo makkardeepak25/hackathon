@@ -7,7 +7,7 @@
     flex-direction: row;
     justify-content: space-around;
     box-shadow: 0px 0px 3px 5px rgb(131, 129, 129);
-    background-color: rgb(75,48,189);
+    background-color:black;
     top: 83px;
     position: fixed;
     z-index: 10000;
@@ -58,7 +58,7 @@
     height: 5vh;
     margin: auto;
     margin-top: 2.1vh;
-    background-color: rgb(17, 112, 30);
+    background-color:#e61c5d;
     color: white;
     outline: none;
     border: none;
@@ -67,7 +67,7 @@
     cursor: pointer;
 }
 .inputButton:hover{
-    background-color: rgb(6, 156, 26);
+    background-color: #FFB6C1;
 }
 
 /* Search image */

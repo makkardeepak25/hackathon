@@ -33,19 +33,20 @@
 }
 
 .applyButton{
-    width: 200px;
+    width: 180px;
     height: 6vh;
     border: none;
     outline: none;
-    background-color: green;
+    background-color: #e61c5d;
     color: white;
     font-size: 25px;
     font-weight: 700;
     cursor: pointer;
     margin-top: 25px;
+    margin-left: 10px;
 }
 .applyButton:hover{
-    background-color: rgb(0, 196, 0);
+    background-color:#FFB6C1;
     color: white;
     font-size: 22px;
     font-weight: 500;
