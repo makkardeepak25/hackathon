@@ -5,7 +5,7 @@ import { SchoolRegForm } from '../Components/Forms/SchoolRegForm'
 import Result from '../Components/ResultPage/Result'
 import SchoolDetails from '../Components/School_Details/SchoolDetails'
 import FilterPage from "../Pages/Filterpage/FilterPage"
-import { Navbar } from "./../Components/Navbar/Navbar.jsx";
+import  {Navbar}  from "./../Components/Navbar/Navbar.jsx";
 import {Homepage} from "./../Pages/Homepage/Homepage.jsx"
 
 function Routes() {

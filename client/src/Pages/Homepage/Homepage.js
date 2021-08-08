@@ -3,26 +3,27 @@ import {Link} from "react-router-dom"
 
 export const Click= styled.div`
 background-color:black;
-color:yellow;
-margin-top:80px;
+color:#e61c5d;
+margin-top:65px;
 padding:10px;
-border-bottom: 4px solid yellow;
+border-bottom: 4px solid #e61c5d;
  `
 
 export const Par=styled.div`
 display:grid;
 grid-template-columns: repeat(2,1fr);
 position:absolute;
-top: 27%;
-left: 19%;
-width: 60%;
+top: 31%;
+left: 15%;
+width: 70%;
 `
 
 export const Assure= styled.div`
 font-size:50px;
 padding-top:50px;
 font-weight: 600;
-font-family: 'Oswald', sans-serif;`
+font-family: 'Oswald', sans-serif;
+color:white;`
 
 export const Linked= styled(Link)`
 text-decoration: none;
