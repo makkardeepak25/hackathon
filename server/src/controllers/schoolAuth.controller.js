@@ -14,6 +14,19 @@ router.get("/", async function(req, res) {
     .exec();
   return res.status(200).json({ data: schools });
 });
+router.get("/:id", async (req, res) => {
+    try {
+        const filter = { _id: req.params.id };
+        const school = await School.findOne(filter).lean().exec();
+        if (!school) {
+            return res.status(404).json({ data: "Not Found" })
+        }
+        return res.status(201).json({ data: school })
+    }catch(err){
+        return res.status(500).send("Internal Error Happened")
+    }
+
+})
 
 const register = async (req, res) => {
   const errors = validationResult(req);
