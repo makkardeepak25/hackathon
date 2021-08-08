@@ -5,16 +5,20 @@ import { Options } from "./Options";
 import { Notifications } from "./Notifications";
 import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   appBar: {
     borderRadius: 15,
-    margin: "100px 100px 50px 100px",
+    margin: "90px 100px",
     display: "flex",
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
     width: "600px",
-    border: "2px solid black"
+    border: "2px solid black",
+
+    [theme.breakpoints.down("xs")]: {
+      width: "90%"
+    }
   },
   image: {
     marginLeft: "15px"
@@ -25,7 +29,7 @@ const useStyles = makeStyles({
     alignItems: "center",
     width: "100%"
   }
-});
+}));
 export function VideoChat() {
   const classes = useStyles();
   return (

@@ -3,21 +3,27 @@ import { makeStyles } from "@material-ui/core/styles";
 import { SocketContext } from "./../../Context/SocketContectProvider";
 import { Grid, Typography } from "@material-ui/core";
 import { Paper } from "@material-ui/core";
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   video: {
     width: "400px",
+    [theme.breakpoints.down("xs")]: {
+      width: "300px"
+    }
   },
   gridContainer: {
     justifyContent: "center",
+    [theme.breakpoints.down("xs")]: {
+      flexDirection: "column"
+    }
   },
   paper: {
     padding: "10px",
-    border: "2px solid red",
+    border: "2px solid black",
     margin: "10px"
   }
-});
+}));
 export function VideoPlayer() {
-    const { name, callAccept, myCall, userCall, callEnd, stream, call } = React.useContext(SocketContext);
+    const { name, callAccepted, myVideo, userVideo, callEnded, stream, call } = React.useContext(SocketContext);
     const classes = useStyles();
     return (
       <Grid container className={classes.gridContainer}>
@@ -25,15 +31,15 @@ export function VideoPlayer() {
           <Paper className={classes.paper}>
             <Grid item xs={12} md={6}>
               <Typography variant="h5" gutterBottom>{name || 'Name'}</Typography>
-              <video playsInline muted ref={myCall} autoPlay className={classes.video} />
+              <video playsInline muted ref={myVideo} autoPlay className={classes.video} />
             </Grid>
           </Paper>
         )}
-        {callAccept && !callEnd && (
+        {callAccepted && !callEnded && (
           <Paper className={classes.paper}>
             <Grid item xs={12} md={6}>
               <Typography variant="h5" gutterBottom>{call.name || 'Name'}</Typography>
-              <video playsInline ref={userCall} autoPlay className={classes.video} />
+              <video playsInline ref={userVideo} autoPlay className={classes.video} />
             </Grid>
           </Paper>
         )}
