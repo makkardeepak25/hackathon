@@ -18,14 +18,22 @@ const initState = {
 //#FE6B8B
 const useStyles = makeStyles({
   root: {
-    background: "linear-gradient(45deg,#60bf9c  30%,#c2e66a 90%)",
+    background: "pink",
     border: 0,
     borderRadius: 3,
     boxShadow: "0 3px 5px 2px rgba(255, 105, 135, .3)",
     color: "white",
-    height: "88.5vh",
+    height: "91vh",
     padding: "3px 50px 0px 50px",
-    marginTop: "80px"
+    marginTop: "60px"
+  },
+  subroot:{
+    width: "60%",
+    height: "73%",
+    background: "	#FFB6C1",
+    margin: "auto",
+    padding: "15px",
+    marginTop: "6%",
   },
   root2: {
     background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
@@ -81,6 +89,7 @@ function ParentsRegForm() {
   };
   return (
     <div className={classes.root}>
+      <div className={classes.subroot}>
       <h2>Parents Registration Form</h2>
       <form noValidate autoComplete="off">
         <div style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)" }}>
@@ -153,7 +162,7 @@ function ParentsRegForm() {
               name="parent_contact"
               value={parent_contact}
               onChange={handleChange}
-              label="ParentsContactNumber"
+              label="Contact Number"
               variant="outlined"
             />
             <br />
@@ -194,6 +203,7 @@ function ParentsRegForm() {
           S U B M I T
         </Button>
       </form>
+    </div>
     </div>
   );
 }

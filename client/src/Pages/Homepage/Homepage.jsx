@@ -1,5 +1,5 @@
 import React from 'react'
-import { Navbar } from '../../Components/Navbar/Navbar.jsx'
+import  {Navbar}  from '../../Components/Navbar/Navbar.jsx'
 import {BackDiv,Parent,School,Par, Schoolimg,Click,Assure,Linked} from "./Homepage.js"
 
 

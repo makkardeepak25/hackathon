@@ -13,14 +13,27 @@ import axios from "axios";
 //#FE6B8B
 const useStyles = makeStyles(theme => ({
   root: {
-    background: "linear-gradient(45deg,#60bf9c  30%,#c2e66a 90%)",
+    background: "pink",
     border: 0,
     borderRadius: 3,
     boxShadow: "0 3px 5px 2px rgba(255, 105, 135, .3)",
     color: "white",
-    height: "88.5vh",
+    height: "91vh",
     padding: "3px 50px 0px 50px",
-    marginTop: "80px"
+    marginTop: "60px"
+  },
+  subroot:{
+    width: "60%",
+    height: "87%",
+    background: "	#FFB6C1",
+    margin: "auto",
+    padding: "15px",
+    marginTop: "3%",
+  },
+  images:{
+    background: "#FFB6C1",
+    fontSize: "17px",
+    paddingLeft:"90px",
   },
   root2: {
     background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
@@ -143,6 +156,7 @@ function SchoolRegForm() {
   };
   return (
     <div className={classes.root}>
+      <div className={classes.subroot}>
       <h2>School Registration Form</h2>
       <div noValidate autoComplete="off">
         <div style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)" }}>
@@ -263,7 +277,7 @@ function SchoolRegForm() {
             />
             <br />
             <br />
-            <input
+            <input className={classes.images}
               margin="dense"
               name="school_images"
               onChange={ShowUrlImage}
@@ -302,6 +316,7 @@ function SchoolRegForm() {
         <Button onClick={handleSubmit} variant="contained" className={classes.root2} color="primary">
           S U B M I T
         </Button>
+      </div>
       </div>
     </div>
   );

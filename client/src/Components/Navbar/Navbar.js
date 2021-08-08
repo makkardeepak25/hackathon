@@ -4,22 +4,24 @@ import {Link} from "react-router-dom"
 
 export const Nav= styled.div`
 position:fixed;
-background-color:#9A1750;
+background-color:#e61c5d;
 width:100%; 
 top:0;
 z-index:100000;
 display:flex;
 justify-content:space-around;
 padding:0px;
-color:black;
+color:white;
 font-size:18px;
 font-weight:bold;
-font-family: 'Oswald', sans-serif;`
+font-family: 'Oswald', sans-serif;
+
+`
 
 
 export const Img= styled.img`
-width:13%;
-height:70px;
+width:7%;
+height:60px;
 padding: 5px;
 cursor: pointer;
  `
@@ -27,18 +29,13 @@ export const Div= styled.div`
 margin-top:29px;
 
 
+
 `
 export const Linked= styled(Link)`
 text-decoration: none;
-color: black;
+color: white;
 
 `
-
-export const Div1= styled.div`
-margin-top:25px;
-display: flex;
-`
-
 
  
 

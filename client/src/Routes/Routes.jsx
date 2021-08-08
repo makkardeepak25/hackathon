@@ -11,6 +11,7 @@ import { Homepage } from "./../Pages/Homepage/Homepage.jsx";
 import {ParentLogin} from "./../Pages/LoginPages/ParentLogin"
 import {SchoolLogin} from "./../Pages/LoginPages/SchoolLogin"
 
+
 function Routes() {
     return (
         <div>
