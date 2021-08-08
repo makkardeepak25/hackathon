@@ -42,6 +42,9 @@ function SchoolDetails() {
             history.push("/login")
         }
     }
+    const handlePreviewReview=()=>{
+            history.push(`/seepreview/${id}`)
+    }
     return Loading ?(
         <div className={styles.Pmaindiv}>
             <div className={styles.Psubdiv} >
@@ -77,7 +80,8 @@ function SchoolDetails() {
                 <h3>Teacher Ratio: {data.teacher_student_ratio} </h3>
                 <div>
                     <button className={styles.applyButton} onClick={handleApply}>Apply</button><br/>
-                    <button className={styles.applyButton} onClick={handleReview}>Add Review</button>
+                    <button className={styles.applyButton} onClick={handleReview}>Add Review</button><br/>
+                    <button className={styles.applyButton} onClick={handlePreviewReview}>See Review</button>
                 </div>
             </div>
         </div>
