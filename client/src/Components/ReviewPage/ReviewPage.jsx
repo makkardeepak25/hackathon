@@ -16,7 +16,7 @@ function ReviewPage() {
     const [data,setData]=useState({})
     const {id}=useParams()
     const [loading, setLoading]=useState(false)
-    let parentData = localStorage.getItem("parent")
+    let parentData = sessionStorage.getItem("parent")
     let patData = JSON.parse(parentData)
     let parentId = patData._id;
     let schoolId=data&&data._id
@@ -44,7 +44,6 @@ function ReviewPage() {
         }
         axios.post(`http://localhost:8000/review`,payload)
         .then(res=>alert(res))
-
     }
     console.log(data)
 

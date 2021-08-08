@@ -10,7 +10,7 @@ function SchoolDetails() {
   const [data, setData] = useState({});
   const [Loading, setLoading] = useState(false);
   const [isAuth, setIsAuth] = useState(false);
-  let parentData = localStorage.getItem("parent");
+  let parentData = sessionStorage.getItem("parent");
   let patData = JSON.parse(parentData);
   const [reviewData, setReviewData] = useState([]);
   // if (patData.role === "parent") {
