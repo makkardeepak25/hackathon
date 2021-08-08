@@ -14,20 +14,7 @@ import { useHistory } from "react-router-dom";
   return (
     <>
       <Nav>
-        <Img src="/icons.png" onClick={()=>history.push("/")} />
-        <Div1>
-          <Input
-          value={query}
-            type="text"
-            placeholder="please type school name or location"
-            onChange={handleChange}
-          />
-
-          <Butt type="button" onClick={handleClick}>
-            Search
-          </Butt>
-        </Div1>
-
+        <Img src="/icon.png" onClick={()=>history.push("/")} />
         <Div>
           <Linked to={"/register-school"}>Register School</Linked>
         </Div>
@@ -50,3 +37,5 @@ import { useHistory } from "react-router-dom";
     </>
   );
 }
+
+

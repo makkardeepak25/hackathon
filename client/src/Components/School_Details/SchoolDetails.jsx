@@ -48,22 +48,32 @@ function SchoolDetails() {
     }
   };
 
-  return Loading ? (
-    <div className={styles.Pmaindiv}>
-      <div className={styles.Psubdiv}>
-        <div className={styles.Pimagesubdiv}>
-          <img className={styles.Pimg1} src={data.school_images} alt="" />
-          <img className={styles.Pimg1} src={data.school_images} alt="" />
-        </div>
-        <div className={styles.Pimagesubdiv}>
-          <img className={styles.Pimg1} src={data.school_images} alt="" />
-          <img className={styles.Pimg1} src={data.school_images} alt="" />
-        </div>
-      </div>
-      <div className={styles.psubdiv2}>
-        <h2> {data.school_name.toUpperCase()}</h2>
-        <h2> {data.city.toUpperCase()}</h2>
-        <h3> {data.address.toUpperCase()}</h3>
+
+    const handlePreviewReview=()=>{
+            history.push(`/seepreview/${id}`)
+    }
+    return Loading ?(
+        <div className={styles.Pmaindiv}>
+            <div className={styles.Psubdiv} >
+                <div className={styles.Pimagesubdiv} >
+                   <img className={styles.Pimg1} src={data.school_images} alt="" />
+                   <img className={styles.Pimg1} src={data.school_images} alt="" />
+               </div>
+               <div className={styles.Pimagesubdiv} >
+                   <img className={styles.Pimg1} src={data.school_images} alt="" />
+                   <img className={styles.Pimg1} src={data.school_images} alt="" />
+               </div>
+           </div>
+            <div className={styles.psubdiv2}>
+                <h2> {data.school_name.toUpperCase()}</h2>
+                <h2> {data.city.toUpperCase()}</h2>
+                <h3> {data.address.toUpperCase()}</h3>
+                
+                <br />
+                    <h2>Education Details:</h2>
+                    <h3>Fees:{data.annual_fee}Lakh/Year</h3>
+                    <h3>Educational Board: {data.board.toUpperCase()} Board</h3>
+                    <h3>Max Standard: {data.max_standard}th</h3>
 
         <br />
         <h2>Education Details:</h2>
@@ -71,25 +81,22 @@ function SchoolDetails() {
         <h3>Educational Board: {data.board.toUpperCase()} Board</h3>
         <h3>Max Standard: {data.max_standard}th</h3>
 
-        <br />
-        <h2>Contact Details: </h2>
-        <span>Phone: </span>
-        <a href={`tel:${data.phone_number}`}>{data.phone_number} </a>
-        <br />
-        <span>E-mail: </span>
-        <a href={`mailto:${data.email}`}>{data.email}</a>
-        <br />
-        <h2>Other Details: </h2>
-        <h3>GST Number: {data.gst_number}</h3>
-        <h3>Teacher Ratio: {data.teacher_student_ratio} </h3>
-        <div>
-          <button className={styles.applyButton} onClick={handleApply}>
-            Apply
-          </button>
-          <br />
-          <button className={styles.applyButton} onClick={handleReview}>
-            Add Review
-          </button>
+
+                <br/>
+                <h2>Contact Details: </h2>
+                <span>Phone: </span><a href={`tel:${data.phone_number}`}>{data.phone_number} </a>
+                <br/>
+                <span>E-mail: </span><a href={`mailto:${data.email}`}>{data.email}</a>
+                <br/>
+                <h2>Other Details: </h2>
+                <h3>GST Number: {data.gst_number}</h3>
+                <h3>Teacher Ratio: {data.teacher_student_ratio} </h3>
+                <div>
+                    <button className={styles.applyButton} onClick={handleApply}>Apply</button><br/>
+                    <button className={styles.applyButton} onClick={handleReview}>Add Review</button><br/>
+                    <button className={styles.applyButton} onClick={handlePreviewReview}>See Review</button>
+                </div>
+            </div>
         </div>
       </div>
     </div>
