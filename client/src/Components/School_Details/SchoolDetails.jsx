@@ -12,6 +12,7 @@ function SchoolDetails() {
     let isAuth = true
 
     const getData=()=>{
+
         axios.get(`http://localhost:8000/schools/${id}`)
         .then((res)=>{
             setData(res.data.data)
