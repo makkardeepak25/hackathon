@@ -1,9 +1,7 @@
 import React, {useRef,useState} from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import { TextField,Button} from '@material-ui/core';
-import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
-import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 
 //"id":1,"school_name":"Andy","gst_number":"5602216203954139","email":"alupton0@irs.gov",
@@ -53,7 +51,8 @@ const useStyles = makeStyles((theme) =>({
     teacher_to_student_ratio:"",
     board:"",
     school_image:"",
-    phone_number:""
+    phone_number:"",
+    password:""
 }
 function SchoolRegForm(){
     const classes = useStyles();
@@ -65,6 +64,7 @@ function SchoolRegForm(){
         school_name,
         gst_number,
         email,
+        password,
         annual_fee,
         maxstandard,
         address,
@@ -91,7 +91,7 @@ function SchoolRegForm(){
     return(
         <div  className={classes.root}>
             <h2>School Registration Form</h2>
-            <form  noValidate autoComplete="off">
+            <form  Validate autoComplete="off">
 
                 <TextField  size = "medium" margin="dense" name="school_name" value = {school_name} onChange = {handleChange} label="School Name" variant = "outlined" />
                 <br />
@@ -99,10 +99,7 @@ function SchoolRegForm(){
                 <TextField margin="dense" name="gst_number" value = {gst_number} onChange = {handleChange} label="GST Number" variant="outlined" />
                 <br />
                 <br />
-                <TextField margin="dense" name="email" value = {email} onChange = {handleChange} label="email" variant="outlined" />
-                    <br />
-                    <br />
-                    <TextField margin="dense" name="maxstandard" value = {maxstandard} onChange = {handleChange} label="maxstandard" variant="outlined" />
+                   <TextField margin="dense" name="maxstandard" value = {maxstandard} onChange = {handleChange} label="maxstandard" variant="outlined" />
                 <br />
                 <br />
 
@@ -152,7 +149,13 @@ function SchoolRegForm(){
                 <TextField margin="dense" name = "phone_number" value = {phone_number} onChange = {handleChange} label = "phone_number" variant = "outlined" />
                 <br />
                 <br />
-                
+                <TextField margin="dense" type = "email" name="email" value = {email} onChange = {handleChange} label="email" variant="outlined" />
+                    <br />
+                    <br />
+                    <TextField margin="dense" type = "password" name="password" value = {password} onChange = {handleChange} label="password" variant="outlined" />
+                    <br />
+                    <br />
+                 
                 <Button variant="contained" className={classes.root2} color="primary">
                     S U B M I T
                 </Button>

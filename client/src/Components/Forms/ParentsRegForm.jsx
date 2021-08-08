@@ -6,12 +6,12 @@ const initState = {
     gaurdianname:"",
     applyingstandard:"",
     parentsincome:"",
-    studentemail:"",
     parentsemail:"",
     parentscontactnum:"",
     addressline1:"",
     addressline2:"",
     parentsqualification:"",
+    password:""
 
 }
 //#FE6B8B
@@ -40,7 +40,7 @@ const useStyles = makeStyles({
 function ParentsRegForm(){
     const classes = useStyles();
     const [parentsForm,setParentsForm] = useState(initState)
-    const {studentname, gaurdianname, applyingstandard,parentsincome,studentemail,parentsemail,parentscontactnum,addressline1,addressline2,parentsqualification } =  parentsForm
+    const {studentname, gaurdianname, applyingstandard,parentsincome,parentsemail,parentscontactnum,addressline1,addressline2,parentsqualification,password } =  parentsForm
     const handleChange = (e) => {
         const {name,value} = e.target
         setParentsForm({...parentsForm,[name]:value})
@@ -49,7 +49,7 @@ function ParentsRegForm(){
     return(
         <div  className={classes.root}>
             <h2>Parents Registration Form</h2>
-            <form  noValidate autoComplete="off">
+            <form  Validate autoComplete="off">
 
                 <TextField  size = "medium" margin="dense" name="studentname" value = {studentname} onChange = {handleChange} label="Student Full Name" variant = "outlined" />
                 <br />
@@ -63,25 +63,24 @@ function ParentsRegForm(){
                 <TextField margin="dense"  name="parentsincome" value = {parentsincome} onChange = {handleChange} label="Parents Income" variant="outlined" />
                 <br />
                 <br />
-                <TextField margin="dense" name="studentemail" value = {studentemail} onChange = {handleChange} label="StudentEmail" variant="outlined" />
-                <br />
-                <br />
-                <TextField margin="dense" name="parentsemail" value = {parentsemail} onChange = {handleChange} label = "ParentsEmail" variant="outlined" />
-                <br />
-                <br />
+                
                 <TextField margin="dense" name="parentscontactnum" value = {parentscontactnum} onChange = {handleChange} label = "ParentsContactNumber" variant = "outlined"/>
                 <br />
                 <br />
-                <TextField margin="dense" name = "addressline1" value = {addressline1} onChange = {handleChange} label = "Address Line 1" variant = "outlined" />
-                <br />
-                <br />
-                <TextField margin="dense" name = "addressline2" value = {addressline2} onChange = {handleChange} label = "Address Line 2" variant = "outlined" />
+                <TextField margin="dense" name = "address" value = {address} onChange = {handleChange} label = "address" variant = "outlined" />
                 <br />
                 <br />
                 <TextField margin="dense" name= "parentsqualification" value = {parentsqualification} onChange = {handleChange} label = "Parents Qualification" variant = "outlined" />
                 <br />
                 <br />
+                <TextField margin="dense" type="email" name="parentsemail" value = {parentsemail} onChange = {handleChange} label = "ParentsEmail" variant="outlined" />
 
+                <br />
+                <br />
+                <TextField margin="dense" type="password" name="password" value = {password} onChange = {handleChange} label="Password" variant="outlined" />
+
+                <br />
+                <br />
                 <Button variant="contained" className={classes.root2} color="primary">
                     S U B M I T
                 </Button>
