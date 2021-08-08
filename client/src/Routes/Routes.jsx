@@ -7,6 +7,7 @@ import FilterPage from "../Pages/Filterpage/FilterPage";
 import AllReview from "../Components/ReviewPage/AllReview";
 import ReviewPage from "../Components/ReviewPage/ReviewPage";
 import SchoolDetails from "../Components/School_Details/SchoolDetails";
+
 import { Navbar } from "./../Components/Navbar/Navbar.jsx";
 import { Homepage } from "./../Pages/Homepage/Homepage.jsx";
 import { ParentLogin } from "./../Pages/LoginPages/ParentLogin";

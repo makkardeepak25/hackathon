@@ -37,14 +37,14 @@ function SchoolDetails() {
     if (patData.role === "parent") {
       history.push(`/applypage/${id}`);
     } else {
-      history.push("/login");
+      history.push("/login-parent");
     }
   };
   const handleReview = () => {
     if (patData.role === "parent") {
       history.push(`/reviewpage/${id}`);
     } else {
-      history.push("/login");
+      history.push("/login-parent");
     }
   };
 
@@ -75,29 +75,27 @@ function SchoolDetails() {
                     <h3>Educational Board: {data.board.toUpperCase()} Board</h3>
                     <h3>Max Standard: {data.max_standard}th</h3>
 
-        <br />
-        <h2>Education Details:</h2>
-        <h3>Fees:{data.annual_fee}Lakh/Year</h3>
-        <h3>Educational Board: {data.board.toUpperCase()} Board</h3>
-        <h3>Max Standard: {data.max_standard}th</h3>
+       
+        
 
 
                 <br/>
                 <h2>Contact Details: </h2>
-                <span>Phone: </span><a href={`tel:${data.phone_number}`}>{data.phone_number} </a>
+                <span>Phone: </span><a style={{textDecoration: 'none', color: '#FE6B8B'}} href={`tel:${data.phone_number}`}>{data.phone_number} </a>
                 <br/>
-                <span>E-mail: </span><a href={`mailto:${data.email}`}>{data.email}</a>
+                <span>E-mail: </span><a style={{textDecoration: 'none', color: '#FE6B8B'}} href={`mailto:${data.email}`}>{data.email}</a>
                 <br/>
                 <h2>Other Details: </h2>
                 <h3>GST Number: {data.gst_number}</h3>
                 <h3>Teacher Ratio: {data.teacher_student_ratio} </h3>
                 <div>
-                    <button className={styles.applyButton} onClick={handleApply}>Apply</button><br/>
-                    <button className={styles.applyButton} onClick={handleReview}>Add Review</button><br/>
+                    <button className={styles.applyButton} onClick={handleApply}>Apply</button>
+                    <button className={styles.applyButton} onClick={handleReview}>Add Review</button>
                     <button className={styles.applyButton} onClick={handlePreviewReview}>See Review</button>
                 </div>
             </div>
         </div>
+
   ) : (
     <div className={styles.loading}>...Loading,Please Wait</div>
   );

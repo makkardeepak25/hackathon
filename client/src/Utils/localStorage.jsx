@@ -1,5 +1,9 @@
 export function saveData(key,data){
+
+    session.setItem(key,JSON.stringify(data))
+
     sessionStorage.setItem(key,JSON.stringify(data))
+
 }
 export function loadData(key){
     try{
