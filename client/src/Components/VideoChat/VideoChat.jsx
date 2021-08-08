@@ -3,40 +3,36 @@ import React from "react";
 import { VideoPlayer } from "./VideoPlayer";
 import { Options } from "./Options";
 import { Notifications } from "./Notifications";
-import { makeStyles } from "@material-ui/core/styles"
+import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles((theme) => ({
-    appBar: {
-      borderRadius: 15,
-      margin: '30px 100px',
-      display: 'flex',
-      flexDirection: 'row',
-      justifyContent: 'center',
-      alignItems: 'center',
-      width: '600px',
-      border: '2px solid black',
-  
-      [theme.breakpoints.down('xs')]: {
-        width: '90%',
-      },
-    },
-    image: {
-      marginLeft: '15px',
-    },
-    wrapper: {
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      width: '100%',
-    },
-  }));
+const useStyles = makeStyles({
+  appBar: {
+    borderRadius: 15,
+    margin: "100px 100px 50px 100px",
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    width: "600px",
+    border: "2px solid black"
+  },
+  image: {
+    marginLeft: "15px"
+  },
+  wrapper: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    width: "100%"
+  }
+});
 export function VideoChat() {
   const classes = useStyles();
-    return (
+  return (
     <div className={classes.wrapper}>
-      <AppBar position="static" color="primary" className={classes.appBar}>
+      <AppBar position="static" color="secondary" className={classes.appBar}>
         <Typography variant="h2" align="center">
-          Video Chat
+          Counselling Session{" "}
         </Typography>
       </AppBar>
       <VideoPlayer />

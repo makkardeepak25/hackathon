@@ -95,9 +95,7 @@ function SchoolDetails() {
                 </div>
             </div>
         </div>
-      
 
-   
   ) : (
     <div className={styles.loading}>...Loading,Please Wait</div>
   );
